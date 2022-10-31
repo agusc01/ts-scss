@@ -1,0 +1,131 @@
+@use '../util' as *;
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    z-index: 10;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all ease 0.5s;
+    overflow-y: scroll;
+
+    @include breakpoint(medium) {
+        opacity: 0;
+        transform: none;
+    }
+
+    &--active {
+        visibility: visible;
+        transform: translateX(0);
+
+        @include breakpoint(medium) {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    &--btn {
+        font-family: inherit;
+        font-weight: 600;
+        border: none;
+
+        color: var(--text-color);
+        background-color: var(--elements-color);
+        padding: rem(8) rem(24);
+        border-radius: rem(4);
+        box-shadow: var(--shadow-btn);
+        cursor: pointer;
+        transition: all ease 0.3s;
+
+        &:hover {
+            background-color: var(--btn-hover);
+        }
+    }
+
+    &__overlay {
+        padding: rem(32) 0;
+    }
+
+    &__back {
+        @include flex(initial);
+        align-items: center;
+        gap: rem(8);
+        margin-bottom: rem(48);
+
+        &-icon {
+            font-size: rem(18);
+        }
+    }
+
+    &__container {
+        display: grid;
+        gap: rem(32);
+
+        @include breakpoint(large) {
+            grid-template-columns: repeat(2, minmax(rem(450), rem(550)));
+            justify-content: space-between;
+        }
+    }
+
+    &__flag {
+        width: 100%;
+        max-height: rem(330);
+        object-fit: cover;
+    }
+
+    &__name {
+        margin-bottom: rem(16);
+    }
+
+    &__info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(rem(230), 1fr));
+        gap: rem(40);
+
+        @include breakpoint(large) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__list {
+        @include flex(initial);
+        flex-direction: column;
+        gap: rem(8);
+    }
+
+    &__item {
+        & span {
+            font-weight: 600;
+        }
+    }
+
+    &__border {
+        margin-top: rem(48);
+        @include flex(initial);
+        flex-direction: column;
+        gap: rem(16);
+
+        &-name {
+            font-size: rem(20);
+        }
+
+        &-list {
+            @include flex(initial);
+            flex-wrap: wrap;
+            gap: rem(8);
+        }
+
+        &-btn {
+            padding: rem(8) rem(32);
+        }
+    }
+
+    &__iframe {
+        width: 100%;
+        height: rem(280);
+    }
+}

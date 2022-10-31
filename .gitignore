@@ -1,0 +1,8 @@
+frontend/dist/css/*css
+frontend/dist/css/*map
+frontend/dist/js/*.js
+frontend/vendor/css/*css
+frontend/vendor/css/*map
+frontend/vendor/js/*.js
+node_modules
+node_modules

@@ -1,0 +1,46 @@
+@use '../util' as *;
+
+.header {
+    background-color: var(--elements-color);
+    box-shadow: var(--shadow-primary);
+}
+
+.nav-menu {
+    @include flex(space-between);
+    padding: rem(20) 0;
+
+    &__link {
+        font-size: rem(16);
+        color: var(--text-color);
+
+        @include breakpoint(medium) {
+            font-size: rem(24);
+        }
+    }
+
+    &__theme {
+        font-family: inherit;
+        font-size: rem(16);
+        font-weight: 600;
+        color: var(--text-color);
+
+        @include flex(initial);
+        align-items: center;
+        gap: rem(5);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+
+        & span {
+            font-size: rem(14);
+
+            @include breakpoint(medium) {
+                font-size: rem(16);
+            }
+        }
+
+        @include breakpoint(medium) {
+            font-size: rem(20);
+        }
+    }
+}
